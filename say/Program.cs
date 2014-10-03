@@ -100,6 +100,10 @@ namespace say
                     synth.Speak(options.Message);
                     //Console.Out.WriteLine("Unknown Command");
                 }
+                if (options.TTSVoice != null)
+                {
+                    synth.SelectVoice(parseVoice(options.TTSVoice));
+                }
             }
         }
 
