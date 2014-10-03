@@ -10,6 +10,8 @@ Download (temporary method)
 2. Click on "say.exe"
 3. Click "View Raw"
 4. It will download
+5. Repeat this process with "CommandLine.dll"
+6. Make sure the two files are in the same folder when you open say.exe
 
 Usage
 ======
