@@ -23,7 +23,7 @@ namespace say
         [Option('g', "gender", Required = false, HelpText = "Select TTS voice by gender")]
         public string TTSGender { get; set; }
 
-        [Option('v', "volume", Required = false, HelpText = "Volume of TTS voice")]
+        [Option('i', "volume", Required = false, HelpText = "Volume of TTS voice")]
         public int TTSVolume { get; set; }
 
         [Option('l', "lsvoices", Required = false, HelpText = "show list of installed TTS voices")]
