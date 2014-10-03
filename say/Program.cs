@@ -40,7 +40,7 @@ namespace say
                 AddDashesToOption = true
             };
             help.AddPreOptionsLine("all rights reserved");
-            help.AddPreOptionsLine("Usage: say -m [text] <other options>");
+            help.AddPreOptionsLine("Usage: [Message] <other options>");
             help.AddOptions(this);
             return help;
         }
@@ -54,22 +54,7 @@ namespace say
         public static Options options = new Options();
         public static void Main(String[] args)
         {
-            #region oldparser
-            //CommandLine.Parser.Default.
-            //if (CommandLine.Parser.Default.ParseArguments(args, options))
-            //{
-            //    // consume Options instance properties
-            //    if (options.TTSVoice != null)
-            //    {
-            //        synth.SelectVoice(parseVoice(options.TTSVoice));
-            //    }
-            //    else
-            //    {
-            //        Console.Out.WriteLine("Invalid Voice name, case sensitive with _ as space");
-            //        synth.SelectVoice(voiceList[0].VoiceInfo.Name);
-            //    }
-            //}
-            #endregion
+
             if (CommandLine.Parser.Default.ParseArguments(args, options)) 
             {
                 if (options.ListVoices)
@@ -101,7 +86,7 @@ namespace say
                 }
                 if (options.Message != null)
                 {
-                    synth.Speak(options.Message);
+                    synth.Speak(parseMessage(options.Message));
                 }
             }
         }
@@ -131,6 +116,15 @@ namespace say
                 }
             }
             return null;
+        }
+
+        public static string parseMessage(string input)
+        {
+            char underscore = '_';
+            char space = ' ';
+
+            String properMessage = input.Replace(underscore, space);
+            return properMessage;
         }
     }
 }
