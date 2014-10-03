@@ -95,14 +95,13 @@ namespace say
                 {
                     synth.Volume = options.TTSVolume;
                 }
-                if (options.Message != null)
-                {
-                    synth.Speak(options.Message);
-                    //Console.Out.WriteLine("Unknown Command");
-                }
                 if (options.TTSVoice != null)
                 {
                     synth.SelectVoice(parseVoice(options.TTSVoice));
+                }
+                if (options.Message != null)
+                {
+                    synth.Speak(options.Message);
                 }
             }
         }
